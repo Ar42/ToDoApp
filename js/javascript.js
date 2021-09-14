@@ -94,9 +94,12 @@ function deleteOne(ind) {
   let checkAvaivaleItems = localStorage.getItem("localtask");
   let toDoObj = JSON.parse(checkAvaivaleItems);
 
-  localStorage.setItem("localtask", JSON.stringify(toDoObj));
-  toDoObj.splice(ind, 1);
-  localStorage.setItem("localtask", JSON.stringify(toDoObj));
+  let checkBeforeDelete = confirm("Are you sure you want to delete?");
+  if (checkBeforeDelete) {
+    localStorage.setItem("localtask", JSON.stringify(toDoObj));
+    toDoObj.splice(ind, 1);
+    localStorage.setItem("localtask", JSON.stringify(toDoObj));
+  }
 
   output();
 }
