@@ -5,7 +5,8 @@ output();
 
 addTask.addEventListener("click", function () {
   valueOfinput_id = input_id.value;
-  if (valueOfinput_id.trim != 0) {
+  let t = valueOfinput_id.trim();
+  if (t.length != 0) {
     let checkAvaivaleItems = localStorage.getItem("localtask");
     if (checkAvaivaleItems == null) {
       toDoObj = [];
@@ -16,6 +17,7 @@ addTask.addEventListener("click", function () {
 
     localStorage.setItem("localtask", JSON.stringify(toDoObj));
   }
+  input_id.value = "";
   output();
 });
 
@@ -34,7 +36,7 @@ function output() {
     <tr>
       <td>${ind + 1}</td>
       <td>${element}</td>
-      <td><button type="button" onclick="edit(${ind})"><i class="fas fa-edit"></i></button></td>
+      <td><button type="button" onclick="edit(${ind})"><a href="#input_id"><i class="fas fa-edit"></i></a></button></td>
       <td><i class="fas fa-trash"></i></td>
     </tr>
     <tr></tr>
@@ -48,17 +50,31 @@ function edit(ind) {
   let toDoObj = JSON.parse(checkAvaivaleItems);
   input_id.value = toDoObj[ind];
   let hidden_id = document.getElementById("hidden_id");
-  hidden_id.value = ind;
+  hidden_id.value = ind; //getting the id of selected item for edit which will help in save
   let addTask = document.getElementById("addTask");
   let saveTask = document.getElementById("saveTask");
   addTask.style.display = "none";
   saveTask.style.display = "block";
 }
-
-// save
-let saveTask = document.getElementById("saveTask");
-hidden_id.addEventListener("click", function () {
+//save
+let saveAterEdit = document.getElementById("saveTask");
+saveAterEdit.addEventListener("click", function () {
   let checkAvaivaleItems = localStorage.getItem("localtask");
   let toDoObj = JSON.parse(checkAvaivaleItems);
   let hidden_id = document.getElementById("hidden_id").value;
+  toDoObj[hidden_id] = input_id.value;
+  let t = input_id.value.trim();
+  toDoObj[hidden_id] = input_id.value;
+  if (t.length != 0) {
+    localStorage.setItem("localtask", JSON.stringify(toDoObj));
+    input_id.value = "";
+    document.getElementById("zeroSpaceAlert").innerHTML =
+      "*Data updated successfully";
+    document.getElementById("zeroSpaceAlert").style.color = "green";
+  } else {
+    document.getElementById("zeroSpaceAlert").innerHTML =
+      "*please write something!!!";
+    document.getElementById("zeroSpaceAlert").style.color = "red";
+  }
+  output();
 });
