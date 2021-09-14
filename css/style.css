@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+.fa-edit {
+  color: rgb(251, 201, 63);
+  padding: 0 3vw;
+  font-weight: 200;
+}
+.fa-trash {
+  color: #f52630;
+}
+html,
+body {
+  background: #000;
+}
+.title_text {
+  color: blanchedalmond;
+  font-size: 3vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  font-weight: 800;
+}
+.footer_text {
+  color: blanchedalmond;
+  font-size: 2vw;
+  margin-top: 5vh;
+  /* margin-bottom: 5vh; */
+  font-weight: 500;
+}
+.totalItemList li {
+  font-size: 1.5vw;
+}
+.btn-success {
+  border: none;
+  outline: none;
+  font-size: 1.3vw;
+  color: #fff;
+}
+button {
+  border: none;
+  outline: none;
+  font-size: 1.3vw;
+  background-color: #000;
+}
+
+#input_id {
+  border: none;
+  outline: none;
+  border-bottom: 3px solid rgb(36, 195, 15);
+}
+input#input_id {
+  margin-right: 1.5vw;
+  background-color: #000;
+  color: #fff;
+}
+td {
+  color: white;
+}
+
+#saveTask {
+  display: none;
+}
+
+.row {
+  box-shadow: white 0px 3px 8px;
+}
+
+@media only screen and (max-width: 605px) {
+  .row {
+    box-shadow: none;
+  }
+}
