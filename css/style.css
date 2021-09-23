@@ -11,20 +11,17 @@
 .fa-trash {
   color: #f52630;
 }
-html,
-body {
-  background: #000;
-}
+
 .title_text {
-  color: blanchedalmond;
-  font-size: 3vw;
+  color: rgb(0, 0, 0);
+  font-size: 32px;
   margin-top: 5vh;
   margin-bottom: 5vh;
   font-weight: 800;
 }
 .footer_text {
-  color: blanchedalmond;
-  font-size: 2vw;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
   margin-top: 5vh;
   /* margin-bottom: 5vh; */
   font-weight: 500;
@@ -35,45 +32,34 @@ body {
 .btn-success {
   border: none;
   outline: none;
-  font-size: 1.3vw;
+  font-size: 14px;
   color: #fff;
 }
 button {
   border: none;
   outline: none;
-  font-size: 1.3vw;
-  background-color: #000;
+  font-size: 14px;
+  background-color: #fff;
 }
 
 #input_id {
   border: none;
   outline: none;
-  border-bottom: 3px solid rgb(36, 195, 15);
+  border-bottom: 1.5px solid #66bb6a;
 }
 input#input_id {
   margin-right: 1.5vw;
-  background-color: #000;
-  color: #fff;
-}
-td {
-  color: white;
 }
 
 #saveTask {
   display: none;
 }
 
-.row {
-  box-shadow: white 0px 3px 8px;
-}
-
 #zeroSpaceAlert {
-  color: white;
   margin-left: 5vw;
 }
 
-@media only screen and (max-width: 605px) {
-  .row {
-    box-shadow: none;
-  }
+#cancelUpdate {
+  margin-left: 2vw;
+  display: none;
 }

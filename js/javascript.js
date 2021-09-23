@@ -8,7 +8,7 @@ addTask.addEventListener("click", function () {
   let t = valueOfinput_id.trim();
   if (t.length != 0) {
     document.getElementById("zeroSpaceAlert").innerHTML =
-      "*Data added successfully";
+      "*Task added successfully";
     document.getElementById("zeroSpaceAlert").style.color = "green";
     let checkAvaivaleItems = localStorage.getItem("localtask");
     if (checkAvaivaleItems == null) {
@@ -62,6 +62,15 @@ function edit(ind) {
   let saveTask = document.getElementById("saveTask");
   addTask.style.display = "none";
   saveTask.style.display = "block";
+  let cancelUpdate = document.getElementById("cancelUpdate");
+  cancelUpdate.style.display = "block";
+  cancelUpdate.addEventListener("click", function () {
+    document.getElementById("zeroSpaceAlert").innerHTML = "";
+    input_id.value = "";
+    addTask.style.display = "block";
+    saveTask.style.display = "none";
+    cancelUpdate.style.display = "none";
+  });
 }
 //save
 let saveAterEdit = document.getElementById("saveTask");
@@ -77,7 +86,7 @@ saveAterEdit.addEventListener("click", function () {
     localStorage.setItem("localtask", JSON.stringify(toDoObj));
     input_id.value = "";
     document.getElementById("zeroSpaceAlert").innerHTML =
-      "*Data updated successfully";
+      "*Task updated successfully";
     document.getElementById("zeroSpaceAlert").style.color = "green";
     document.getElementById("addTask").style.display = "block";
     document.getElementById("saveTask").style.display = "none";
@@ -99,6 +108,16 @@ function deleteOne(ind) {
     localStorage.setItem("localtask", JSON.stringify(toDoObj));
     toDoObj.splice(ind, 1);
     localStorage.setItem("localtask", JSON.stringify(toDoObj));
+    document.getElementById("zeroSpaceAlert").innerHTML = "";
+
+    // there was an corner case that, i found when i click edit button the the
+    // value if present at the input field and at that point of time if i delete that,
+    // it is deleted from the list but the value still presents in the input filed
+    // the next three lines is to solve that
+    input_id.value = "";
+    addTask.style.display = "block";
+    saveTask.style.display = "none";
+    cancelUpdate.style.display = "none";
   }
 
   output();

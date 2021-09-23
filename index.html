@@ -28,6 +28,7 @@
 
     <title>To-Do-App</title>
   </head>
+  <style></style>
   <body>
     <div class="container my-5">
       <h1 class="text-center title_text">To-Do-App</h1>
@@ -35,23 +36,25 @@
         <input type="text" name="" id="input_id" placeholder="Add your task" />
         <input type="hidden" name="" id="hidden_id" />
         <button class="btn btn-success" id="addTask">Add task</button>
-        <button class="btn btn-success" id="saveTask">Save task</button>
+        <button class="btn btn-success" id="saveTask">Update task</button>
+        <button class="btn btn-danger" id="cancelUpdate">Cancel</button>
       </div>
-      <span id="zeroSpaceAlert"></span>
-      <div class="row my-5">
-        <div class="col-8 mx-auto">
-          <table class="table" id="tableOfList">
-            <thead>
-              <tr>
-                <th></th>
-                <th scope="col">Task Name</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
+
+      <table class="table">
+        <span id="zeroSpaceAlert"></span>
+        <br />
+        <br />
+        <br />
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tableOfList"></tbody>
+      </table>
       <h3 class="text-center footer_text">
         ©2021 Abid Hasan, All right reserved.
       </h3>
