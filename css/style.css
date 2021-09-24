@@ -93,3 +93,6 @@ a.author_name {
   margin-top: 5vh;
   font-weight: 500;
 }
+.content {
+  min-height: 60%;
+}
