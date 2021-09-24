@@ -3,6 +3,23 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+.head_and_search {
+  display: grid;
+  grid-template-columns: 80% 10%;
+}
+
+.title_text {
+  color: rgb(0, 0, 0);
+  font-size: 3vw;
+  margin-bottom: 50px;
+  margin-top: 0px;
+  font-weight: 800;
+  line-height: 72px;
+}
+
+.totalItemList li {
+  font-size: 1.5vw;
+}
 .fa-edit {
   color: rgb(251, 201, 63);
   padding: 0 3vw;
@@ -12,33 +29,16 @@
   color: #f52630;
 }
 
-.title_text {
-  color: rgb(0, 0, 0);
-  font-size: 32px;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  font-weight: 800;
-}
-.footer_text {
-  color: rgb(0, 0, 0);
-  font-size: 20px;
-  margin-top: 5vh;
-  /* margin-bottom: 5vh; */
-  font-weight: 500;
-}
-.totalItemList li {
-  font-size: 1.5vw;
-}
 .btn-success {
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 1.5vw;
   color: #fff;
 }
 button {
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 1.5vw;
   background-color: #fff;
 }
 
@@ -50,16 +50,46 @@ button {
 input#input_id {
   margin-right: 1.5vw;
 }
+#addTask {
+  font-size: 1.5vw;
+}
 
 #saveTask {
   display: none;
 }
 
+#deleteAllTask {
+  margin-left: 1.5vw;
+  font-size: 1.5vw;
+}
+td {
+  font-size: 1.5vw;
+}
+
 #zeroSpaceAlert {
-  margin-left: 5vw;
+  position: relative;
+  top: 20px;
+  left: 350px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #cancelUpdate {
   margin-left: 2vw;
   display: none;
+}
+
+#searchbar {
+  border: 2px solid rgb(19, 110, 24);
+  outline: none;
+}
+
+a.author_name {
+  text-decoration: none;
+}
+.footer_text {
+  color: rgb(0, 0, 0);
+  font-size: 1.5vw;
+  margin-top: 5vh;
+  font-weight: 500;
 }

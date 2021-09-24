@@ -1,6 +1,6 @@
 let input_id = document.getElementById("input_id");
 let addTask = document.getElementById("addTask");
-
+// console.log(localStorage.length);
 output();
 
 addTask.addEventListener("click", function () {
@@ -9,10 +9,13 @@ addTask.addEventListener("click", function () {
   if (t.length != 0) {
     document.getElementById("zeroSpaceAlert").innerHTML =
       "*Task added successfully";
+
     document.getElementById("zeroSpaceAlert").style.color = "green";
     let checkAvaivaleItems = localStorage.getItem("localtask");
+
     if (checkAvaivaleItems == null) {
       toDoObj = [];
+      document.getElementById("zeroSpaceAlert").innerHTML = "";
     } else {
       toDoObj = JSON.parse(checkAvaivaleItems);
     }
@@ -39,19 +42,18 @@ function output() {
   let varForOutput = "";
   let tableOfList = document.getElementById("tableOfList");
   toDoObj.forEach((element, ind) => {
-    varForOutput += ` <tbody>
+    varForOutput += `
     <tr>
       <td>${ind + 1}</td>
       <td>${element}</td>
       <td><button type="button" onclick="edit(${ind})"><a href="#input_id"><i class="fas fa-edit"></i></a></button></td>
       <td><button type="button" onclick="deleteOne(${ind})"><i class="fas fa-trash"></i></button></td>
     </tr>
-    <tr></tr>
-  </tbody>`;
+  `;
   });
   tableOfList.innerHTML = varForOutput;
 }
-
+// edit
 function edit(ind) {
   let checkAvaivaleItems = localStorage.getItem("localtask");
   let toDoObj = JSON.parse(checkAvaivaleItems);
@@ -60,7 +62,10 @@ function edit(ind) {
   hidden_id.value = ind; //getting the id of selected item for edit which will help in save
   let addTask = document.getElementById("addTask");
   let saveTask = document.getElementById("saveTask");
+  let deleteAllTask = document.getElementById("deleteAllTask");
   addTask.style.display = "none";
+  deleteAllTask.style.display = "none";
+
   saveTask.style.display = "block";
   let cancelUpdate = document.getElementById("cancelUpdate");
   cancelUpdate.style.display = "block";
@@ -70,6 +75,7 @@ function edit(ind) {
     addTask.style.display = "block";
     saveTask.style.display = "none";
     cancelUpdate.style.display = "none";
+    deleteAllTask.style.display = "block";
   });
 }
 //save
@@ -90,6 +96,8 @@ saveAterEdit.addEventListener("click", function () {
     document.getElementById("zeroSpaceAlert").style.color = "green";
     document.getElementById("addTask").style.display = "block";
     document.getElementById("saveTask").style.display = "none";
+    document.getElementById("cancelUpdate").style.display = "none";
+    deleteAllTask.style.display = "block";
   } else {
     document.getElementById("zeroSpaceAlert").innerHTML =
       "*please write something!!!";
@@ -122,3 +130,41 @@ function deleteOne(ind) {
 
   output();
 }
+
+//Delete All
+let deleteAllTask = document.getElementById("deleteAllTask");
+deleteAllTask.addEventListener("click", () => {
+  if (localStorage.length == 0) {
+    document.getElementById("zeroSpaceAlert").innerText = "Nothing to Delete";
+    document.getElementById("zeroSpaceAlert").style.color = "red";
+  } else {
+    let askBeforeDeleteAll = confirm("Delete All?");
+    if (askBeforeDeleteAll) {
+      localStorage.clear();
+      // document.getElementById("heading_of_table").innerHTML = "";
+      document.getElementById("zeroSpaceAlert").innerHTML = "No Task Available";
+      document.getElementById("zeroSpaceAlert").style.color = "red";
+      // deleteAllTask.style.display = "none";
+    }
+  }
+  output();
+});
+
+// search
+
+const funtionToSearchItems = () => {
+  let searchbar = document.getElementById("searchbar").value.toUpperCase();
+  let table = document.getElementById("table");
+  let tr = document.getElementsByTagName("tr");
+  for (let i = 0; i < tr.length; i++) {
+    let td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      let textvalue = td.textContent || td.innerHTML;
+      if (textvalue.toUpperCase().indexOf(searchbar) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+};
