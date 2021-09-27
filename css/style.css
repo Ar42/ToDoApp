@@ -16,6 +16,10 @@
   font-weight: 800;
   line-height: 72px;
 }
+#searchbar,
+#input_id {
+  font-size: 1.5vw;
+}
 
 .totalItemList li {
   font-size: 1.5vw;
@@ -62,16 +66,15 @@ input#input_id {
   margin-left: 1.5vw;
   font-size: 1.5vw;
 }
-td {
+td,
+th {
   font-size: 1.5vw;
 }
 
 #zeroSpaceAlert {
-  position: relative;
-  top: 20px;
-  left: 350px;
-  text-align: center;
-  font-weight: bold;
+  margin-top: 6vh;
+  margin-bottom: 3vh;
+  font-weight: 500;
 }
 
 #cancelUpdate {
